@@ -2,20 +2,18 @@
 ACCOUNT_ADDR = 400ab0adb4fa0ae7e7486ef76be44e9d64fbfab4
 
 
-build:
-	build_geth
-	build_prysm
-
 build_prysm:
-	git clone https://github.com/prysmaticlabs/prysm && cd prysm
-	go build -o=../beacon-chain ./cmd/beacon-chain
-	go build -o=../validator ./cmd/validator
-	go build -o=../prysmctl ./cmd/prysmctl
+	git clone https://github.com/prysmaticlabs/prysm
+	cd prysm; \
+	go build -o=../cmd/beacon-chain ./cmd/beacon-chain; \
+	go build -o=../cmd/validator ./cmd/validator; \
+	go build -o=../cmd/prysmctl ./cmd/prysmctl
 
 build_geth:
-	git clone https://github.com/ethereum/go-ethereum && cd go-ethereum
-	make geth
-	cp ./build/bin/geth ../geth
+	git clone https://github.com/ethereum/go-ethereum
+	cd go-ethereum; \
+	make geth; \
+	cp ./build/bin/geth ../cmd/geth
 
 
 import_account:
@@ -23,7 +21,9 @@ import_account:
 
 
 clear_data:
-	rm -r data/gethdata/geth || rm -r data/beacondata || rm -r data/validordata
+	rm -r data/gethdata/geth
+	rm -r data/beacondata
+	rm -r data/validatordata
 
 
 init_genesis:
