@@ -30,20 +30,7 @@ This field deploys a validator deposit contract
     },
 ```
 
-#### 3. ShanghaiTime
-
-```json
-"config": {
-    ...
-    "shanghaiTime": 1694203366,
-    ...
-}
-```
-
-It indicates when the Shanghai update should occur. This corresponds to Friday 8 September 2023 08:02:46 PM, which is already into the past.
-
-
-#### 4. timestamp
+#### 3. timestamp
 
 ```json
 "timestamp": "0x64fb7de6",

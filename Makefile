@@ -20,10 +20,8 @@ import_account:
 	./cmd/geth --datadir=data/gethdata account import config/account_secret.txt
 
 
-clear_data:
-	rm -r data/gethdata/geth
-	rm -r data/beacondata
-	rm -r data/validatordata
+clean:
+	sh clean.sh
 
 
 init_genesis:
